@@ -1,0 +1,27 @@
+@model IEnumerable<BibliotecaApp.Models.Livro>
+
+@{
+    ViewData["Title"] = "BibliotecaApp";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Biblioteca Senac Rio</h1>
+
+<div class="row">
+    @foreach (var livro in Model)
+    {
+        <div class="col-md-2 col-sm-4 col-xs-12 livro-card">
+            <div class="card">
+                <img class="card-img-top" src="@livro.CapaUrl" alt="@livro.Titulo" />
+                <div class="card-body">
+                    <h5 class="card-title">@livro.Titulo</h5>
+                    <p class="card-text">Ano: @livro.AnoPublicacao</p>
+                    <p class="card-text">ISBN: @livro.ISBN</p>
+                    <p class="card-text">Quantidade: @livro.QuantidadeDisponivel</p>
+                    <a href="#" class="btn btn-primary">Reservar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
