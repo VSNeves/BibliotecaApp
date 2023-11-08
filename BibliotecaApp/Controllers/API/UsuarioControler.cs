@@ -19,14 +19,14 @@ namespace BibliotecaApp.Controllers.API
             _context = context;
         }
 
-        [HttpGet("Usuarios")]
+        [HttpGet("{Usuarios}")]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
             return _context.Usuario == null ? (ActionResult<IEnumerable<Usuario>>)NotFound() : await _context.Usuario.ToListAsync();
         }
 
        //Listar usuário específico
-        [HttpGet("{Usuarios/id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario([FromRoute] int id)
         {
             if (_context.Usuario == null)
@@ -46,7 +46,7 @@ namespace BibliotecaApp.Controllers.API
 
 
 
-        [HttpPost("usuarios/cliente")]
+        [HttpPost("{cliente}")]
         public ActionResult<Usuario> AddCliente([FromRoute] Usuario cliente)
         {
             if (!IsAdministrador())
@@ -62,7 +62,7 @@ namespace BibliotecaApp.Controllers.API
            
         }
 
-        [HttpPost("usuarios/administrador")]
+        [HttpPost("{administrador}")]
         public ActionResult<Usuario> AddAdministrador([FromRoute] Usuario administrador)
         {
             if (!IsAdministrador())
