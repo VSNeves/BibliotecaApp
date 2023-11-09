@@ -5,6 +5,7 @@ namespace BibliotecaApp.Models
     
     public class Usuario
     {
+        [key]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório")]
