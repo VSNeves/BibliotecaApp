@@ -26,7 +26,7 @@ namespace BibliotecaApp.Controllers.API
         }
 
        //Listar usuário específico
-        [HttpGet("{id}")]
+        [HttpGet("Usuario/{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario([FromRoute] int id)
         {
             if (_context.Usuario == null)
@@ -46,7 +46,7 @@ namespace BibliotecaApp.Controllers.API
 
 
 
-        [HttpPost("{cliente}")]
+        [HttpPost("Usuario/{cliente}")]
         public ActionResult<Usuario> AddCliente([FromRoute] Usuario cliente)
         {
             if (!IsAdministrador())
@@ -62,7 +62,7 @@ namespace BibliotecaApp.Controllers.API
            
         }
 
-        [HttpPost("{administrador}")]
+        [HttpPost("Usuario/{administrador}")]
         public ActionResult<Usuario> AddAdministrador([FromRoute] Usuario administrador)
         {
             if (!IsAdministrador())
@@ -80,7 +80,7 @@ namespace BibliotecaApp.Controllers.API
         }
 
         //Atualizar
-        [HttpPut("{id}")]
+        [HttpPut("Usuario/{id}")]
         public async Task<IActionResult> PutUsuario([FromRoute] Guid id, [FromBody] Usuario usuario)
         {
             if (!IsAdministrador())
@@ -115,7 +115,7 @@ namespace BibliotecaApp.Controllers.API
         }
 
                 
-        [HttpDelete("{id}")]
+        [HttpDelete("Usuario/{id}")]
         public async Task<ActionResult> DeleteUsuarioAsync(int id)
         {
             if (!IsAdministrador())
